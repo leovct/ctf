@@ -34,6 +34,10 @@ jobs:
           forge --version
           forge build --sizes
         id: build
+      
+      - name: Run lint on Solidity code
+        run: npx prettier --check 'src/**/*.sol' 'test/**/*.sol'
+        id: lint
 
       - name: Run Forge tests
         run: |
