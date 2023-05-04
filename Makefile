@@ -18,7 +18,7 @@ exploit: ## Run exploits. Set DEBUG to true to show traces: `make exploit DEBUG=
 	@if [ $(DEBUG) = true ]; then \
 		forge test -vvvv; \
 	else \
-		forge test; \
+		forge test -vvv; \
 	fi
 
 ##@ Lint
