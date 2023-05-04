@@ -12,14 +12,20 @@ build: ## Build the contracts
 
 ##@ Exploit
 DEBUG?=false
+CONTRACT?=""
 
 .PHONY: exploit
-exploit: ## Run exploits. Set DEBUG to true to show traces: `make exploit DEBUG=true`.
-	@if [ $(DEBUG) = true ]; then \
-		forge test -vvvv; \
+exploit: ## Run exploits. Set CONTRACT to only run the exploit of a specific contract and DEBUG to true to show traces: `make exploit CONTRACT=RoadClosed DEBUG=true`.
+	@cmd="forge test"; \
+	if [ "${CONTRACT}" != "" ]; then \
+		cmd="$${cmd} --match-contract ${CONTRACT}"; \
+	fi; \
+	if [ "${DEBUG}" = "true" ]; then \
+		cmd="$${cmd} -vvvv"; \
 	else \
-		forge test -vvv; \
-	fi
+		cmd="$${cmd} -vvv"; \
+	fi; \
+	eval "$${cmd}";
 
 ##@ Lint
 
@@ -28,5 +34,6 @@ install: ## Install npm dependencies.
 	npm install
 
 .PHONY: lint
-lint: ## Lint Solidity code.
+lint: build ## Lint Solidity code and README.md.
 	npx prettier --write 'src/**/*.sol' 'test/**/*.sol'
+	npx markdown-table-formatter README.md
