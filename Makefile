@@ -34,5 +34,6 @@ install: ## Install npm dependencies.
 	npm install
 
 .PHONY: lint
-lint: build ## Lint Solidity code.
+lint: build ## Lint Solidity code and README.md.
 	npx prettier --write 'src/**/*.sol' 'test/**/*.sol'
+	npx markdown-table-formatter README.md
