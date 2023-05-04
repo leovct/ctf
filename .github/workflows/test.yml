@@ -2,12 +2,16 @@ name: test
 
 on:
   push:
-    branches:
-      - "main"
-  pull_request:
-    branches:
-      - "**"
-    types: [opened, synchronize]
+    paths:
+      # Workflow
+      - ".github/workflows/test.yaml"
+      # Libraries and configuration files
+      - "lib/**/*"
+      - ".gitmodules"
+      - "foundry.toml"
+      # Contracts and tests
+      - "src/**/*.sol"
+      - "test/**/*.t.sol"
 
 env:
   FOUNDRY_PROFILE: ci
