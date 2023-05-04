@@ -2,9 +2,9 @@
 
 ## 📌 Table of Contents
 
-- [⛳️ List of CTFs](#⛳️-list-of-ctfs)  
-  1. [QuillCTF](#quillctf)
-- [🛠️ Usage](#🛠️-usage)
+- [⛳️ List of CTFs](#%EF%B8%8F-list-of-ctfs)  
+  1. [QuillCTF](#1-quillctf)
+- [🛠️ Usage](#%EF%B8%8F-usage)
 
 ## ⛳️ List of CTFs
 
