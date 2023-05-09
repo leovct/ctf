@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/access/Ownable.sol";
-import "&openzeppelin/security/ReentrancyGuard.sol";
+import "@openzeppelin/security/ReentrancyGuard.sol";
 
 contract PrivateClub is ReentrancyGuard, Ownable {
     uint private registerEndDate;
