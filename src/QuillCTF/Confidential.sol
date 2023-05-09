@@ -6,7 +6,7 @@ contract Confidential {
   uint public alice_age = 24;
   // @audit This variable is not really private since it's possible to read its value from storage.
   // All we need is to guess the 32-byte location (slot) where the variable is stored. For example,
-  // `string firstUser` will take the first slot, `uint alice_age` the second slot and 
+  // `string firstUser` will take the first slot, `uint alice_age` the second slot and
   // `bytes32 ALICE_PRIVATE_KEY` the third slot.
   // Also, private hashes are stored on slots 4 and 9, for alice and bob respectively.
   bytes32 private ALICE_PRIVATE_KEY; //Super Secret Key
