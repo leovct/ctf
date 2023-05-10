@@ -7,9 +7,9 @@ contract RoadClosed {
   address pwner;
   mapping(address => bool) whitelistedMinters;
 
-  // Audit: relying on extcodesize to check if an address is an EOA is a very bad practice.
+  // @audit Relying on `extcodesize` to check if an address is an EOA is a very bad practice.
   // Indeed, a contract does not have source code available during construction.
-  // For reference: https://consensys.github.io/smart-contract-best-practices/development-recommendations/solidity-specific/extcodesize-checks/
+  // https://consensys.github.io/smart-contract-best-practices/development-recommendations/solidity-specific/extcodesize-checks/
   function isContract(address addr) public view returns (bool) {
     uint size;
     assembly {
@@ -18,7 +18,7 @@ contract RoadClosed {
     return size > 0;
   }
 
-  // Audit: this function could be shortened to `return msg.sender == owner`.
+  // @audit This function could be shortened to `return msg.sender == owner`.
   function isOwner() public view returns (bool) {
     if (msg.sender == owner) {
       return true;
@@ -29,13 +29,13 @@ contract RoadClosed {
     owner = msg.sender;
   }
 
-  // Audit: anyone can add an EOA to the whitelist since the visibility is public.
+  // @audit Anyone can add an EOA address to the whitelist because the function is public.
   function addToWhitelist(address addr) public {
     require(!isContract(addr), 'Contracts are not allowed');
     whitelistedMinters[addr] = true;
   }
 
-  // Audit: anyone can become the owner if they meet the following conditions:
+  // @audit Anyone can become the owner if they meet the following conditions:
   // - being whitelisted (which anyone can do)
   // - the new owner address must not be 0x0 and should be the same as the one from which you send the transaction
   function changeOwner(address addr) public {
