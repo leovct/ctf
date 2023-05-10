@@ -21,8 +21,21 @@
 
 ## 🛠️ Usage
 
-<p align="center">
-  <img src="doc/cmd-make.svg"  width="1000">
-  <img src="doc/cmd-make-exploit.svg"  width="1000">
-  <img src="doc/cmd-make-exploit-with-options.svg"  width="1000">
-</p>
+```bash
+$ make
+Usage:
+  make <target>
+
+Help
+  help             Display this help.
+
+Build
+  build            Build the contracts
+
+Exploit
+  exploit          Run exploits. Set CONTRACT to only run the exploit of a specific contract and DEBUG to true to show traces: `make exploit CONTRACT=RoadClosed DEBUG=true`.
+
+Lint
+  install          Install npm dependencies.
+  lint             Lint Solidity code and `README.md`.
+```
