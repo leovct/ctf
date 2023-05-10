@@ -1,6 +1,6 @@
-# QuillCTF: Private Club Exploit
+# QuillCTF: PrivateClub Exploit
 
-- Challenge: https://academy.quillaudits.com/challenges/quillctf-challenges/private-club  
+- [Challenge](https://academy.quillaudits.com/challenges/quillctf-challenges/private-club  )
 - Contract: [PrivateClub](../../src/QuillCTF/PrivateClub.sol)  
 - Exploit: [PrivateClubExploit](../../test/QuillCTF/PrivateClubExploit.t.sol)
 
