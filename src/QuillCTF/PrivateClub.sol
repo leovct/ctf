@@ -32,7 +32,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
     bool success;
     for (uint i = 0; i < _members.length; i++) {
       (success, ) = _members[i].call{value: 1 ether}('');
-      require(success, "Low-level call failed");
+      require(success, 'Low-level call failed');
     }
     membersCount += 1;
     members[msg.sender] = true;
@@ -54,7 +54,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
   // @audit The owner of the contract can withdraw all the funds.
   function adminWithdraw(address to, uint amount) external onlyOwner {
     (bool success, ) = payable(to).call{value: amount}('');
-    require(success, "Low-level call failed");
+    require(success, 'Low-level call failed');
   }
 
   // @audit The owner can add any member for free and after the registration has closed.
