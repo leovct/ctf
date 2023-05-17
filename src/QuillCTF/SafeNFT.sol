@@ -22,13 +22,13 @@ contract SafeNFT is ERC721Enumerable {
 
   function claim() external {
     require(canClaim[msg.sender], 'CANT_MINT');
-    // @audit _safeMint isn't safe because it performs an external call to the receiving address
-    // (see ERC721:_checkOnERC721Received). If the receiver of _safeMint is a contract, it check the
+    // @audit _safeMint is not safe because it performs an external call to the receiving address
+    // (see ERC721:_checkOnERC721Received). If the receiver of _safeMint is a contract, it checks the
     // value returned by the onERC721Received function. An attacker can easily use this vulnerability
-    // to execute arbitrary code.
+    // to execute any arbitrary code.
     _safeMint(msg.sender, totalSupply());
     // @audit The state update is done after the external call so an attacker can execute arbitrary
-    // code with the value canClaim[msg.sender] still equal to true.
+    // code before `canClaim[msg.sender]` is updated from `true` to `false`.
     canClaim[msg.sender] = false;
   }
 }
