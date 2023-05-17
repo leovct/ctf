@@ -18,6 +18,7 @@
 | 02 | [Confidential](src/QuillCTF/Confidential.sol) | [ConfidentialExploit](test/QuillCTF/ConfidentialExploit.t.sol) | | - Read private variables from storage
 | 03 | [VIPBank](src/QuillCTF/VIPBank.sol) | [VIPBankExploit](test/QuillCTF/VIPBankExploit.t.sol) | | - Wrong check of parameter to prevent users from withdrawing too many ethers at a time which leads to funds locked forever in the contract.
 | 04 | [SafeNFT](src/QuillCTF/SafeNFT.sol) | [SafeNFTExploit](test/QuillCTF/SafeNFTExploit.t.sol) | | - OpenZeppelin's ERC721 implementation of `safeMint` is not safe and performs an external call to the receiver address.
+| 05 | [Delegate](src/QuillCTF/Delegate.sol) | [DelegateExploit](test/QuillCTF/SafeNFTExploit.t.sol) | | - `delegatecall` can override variables of the calling contract.
 | 20 | [VoteToken](src/QuillCTF/VoteToken.sol) | [VoteTokenExploit](test/QuillCTF/VoteTokenExploit.t.sol) | [VoteTokenReport](reports/QuillCTF/VoteToken.md) | - The contract doesn't update its state when users transfer tokens
 | 21 | [PrivateClub](src/QuillCTF/PrivateClub.sol) | [PrivateClubExploit](test/QuillCTF/PrivateClubExploit.t.sol) | [PrivateClubReport](reports/QuillCTF/PrivateClub.md) | - Not enough check of the parameters (e.g. `becomeMember`)<br>- Too much power given to the contract owner
 
