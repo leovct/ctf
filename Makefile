@@ -7,7 +7,7 @@ help: ## Display this help.
 ##@ Build
 
 .PHONY: build
-build: ## Build the contracts
+build: ## Build the contracts.
 	forge build
 
 ##@ Exploit
