@@ -14,6 +14,10 @@ build: ## Build the contracts.
 DEBUG?=false
 CONTRACT?=""
 
+.PHONY: list
+list: ## List the contracts.
+	ls src/**/*.sol | sed -e 's/.*\///' -e 's/.sol//'
+
 .PHONY: exploit
 exploit: ## Run exploits. Set CONTRACT to only run the exploit of a specific contract and DEBUG to true to show traces: `make exploit CONTRACT=RoadClosed DEBUG=true`.
 	@cmd="forge test"; \
