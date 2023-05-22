@@ -1,44 +1,47 @@
-# 🔐 A collection of CTF challenges
+![Lint workflow status](https://img.shields.io/github/actions/workflow/status/leovct/puzzl3s/lint.yml?branch=main&label=ci-lint)
+![Exploit workflow status](https://img.shields.io/github/actions/workflow/status/leovct/puzzl3s/exploit.yml?branch=main&label=ci-exploit)
 
-## 📌 Table of Contents
+## What is Puzzl3s?
 
-- [⛳️ List of CTFs](#%EF%B8%8F-list-of-ctfs)  
-  1. [QuillCTF](#1-quillctf)
-- [🛠️ Usage](#%EF%B8%8F-usage)
+Puzzl3s 🧩 is an engaging collection of web3-based puzzles and Capture The Flag (CTF) challenges. While I didn't create the CTFs themselves, this repository showcases my solutions and serves as a comprehensive resource for other developers and security enthusiasts.
 
-## ⛳️ List of CTFs
+## Challenges
 
-### 1. QuillCTF
+The following challenges have been solved:
 
-<https://academy.quillaudits.com/challenges>
+- [QuillCTF](doc/QuillCTF.md)
 
-| N° | Contract                                  | Exploit                                                    | Report | Topic                                                                                                                                |
-|----|-------------------------------------------|------------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------|
-| 01 | [RoadClosed](src/QuillCTF/RoadClosed.sol) | [RoadClosedExploit](test/QuillCTF/RoadClosedExploit.t.sol) |        | - Use of `extcodesize` to check if an address is an EOA<br>- Lack of access control for some critical methods (e.g `addToWhitelist`) |
-| 02 | [Confidential](src/QuillCTF/Confidential.sol) | [ConfidentialExploit](test/QuillCTF/ConfidentialExploit.t.sol) | | - Read private variables from storage
-| 03 | [VIPBank](src/QuillCTF/VIPBank.sol) | [VIPBankExploit](test/QuillCTF/VIPBankExploit.t.sol) | | - Wrong check of parameter to prevent users from withdrawing too many ethers at a time which leads to funds locked forever in the contract.
-| 04 | [SafeNFT](src/QuillCTF/SafeNFT.sol) | [SafeNFTExploit](test/QuillCTF/SafeNFTExploit.t.sol) | | - OpenZeppelin's ERC721 implementation of `safeMint` is not safe and performs an external call to the receiver address.
-| 05 | [Delegate](src/QuillCTF/Delegate.sol) | [DelegateExploit](test/QuillCTF/SafeNFTExploit.t.sol) | | - `delegatecall` can override variables of the calling contract.
-| 20 | [VoteToken](src/QuillCTF/VoteToken.sol) | [VoteTokenExploit](test/QuillCTF/VoteTokenExploit.t.sol) | [VoteTokenReport](reports/QuillCTF/VoteToken.md) | - The contract doesn't update its state when users transfer tokens
-| 21 | [PrivateClub](src/QuillCTF/PrivateClub.sol) | [PrivateClubExploit](test/QuillCTF/PrivateClubExploit.t.sol) | [PrivateClubReport](reports/QuillCTF/PrivateClub.md) | - Not enough check of the parameters (e.g. `becomeMember`)<br>- Too much power given to the contract owner
+## Build and Exploit
 
-## 🛠️ Usage
+First, make sure [Foundry](https://book.getfoundry.sh/getting-started/installation) is installed. We're going to use [Forge](https://book.getfoundry.sh/forge/), an Ethereum testing framework, to build the contracts and run the exploits.
 
-```bash
-$ make
-Usage:
-  make <target>
+In order to build and run the exploits, first clone the Github repository:
 
-Help
-  help             Display this help.
+```sh
+git clone https://github.com/leovct/puzzl3s
+cd puzzl3s
+```
 
-Build
-  build            Build the contracts
+In order to build the contracts, you can run the following command:
 
-Exploit
-  exploit          Run exploits. Set CONTRACT to only run the exploit of a specific contract and DEBUG to true to show traces: `make exploit CONTRACT=RoadClosed DEBUG=true`.
+```sh
+make build
+```
 
-Lint
-  install          Install npm dependencies.
-  lint             Lint Solidity code and `README.md`.
+In order to run all the exploits, you can use:
+
+```sh
+make exploit
+```
+
+Note that you can run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` and you can show traces using `DEBUG=TRUE`. Here's an example:
+
+```sh
+make exploit CONTRACT=<CONTRACT_NAME> DEBUG=TRUE
+```
+
+To discover all the possible commands, you can type:
+
+```sh
+make
 ```
