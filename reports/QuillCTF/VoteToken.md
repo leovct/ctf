@@ -32,7 +32,7 @@ $ make exploit CONTRACT=VoteToken
 Running 1 test for test/QuillCTF/VoteTokenExploit.t.sol:VoteTokenExploit
 [PASS] testExploit() (gas: 277574)
 Logs:
-  
+
   --------------- [STATS] ----------------
   🙍‍♀️ Alice         0 votes     1000 tokens
   🙎‍♂️ Bob           0 votes        0 tokens
@@ -42,7 +42,7 @@ Logs:
 
   Alice delegates its tokens to the exploiter
   Alice sends its tokens to Bob
-  
+
   --------------- [STATS] ----------------
   🙍‍♀️ Alice         0 votes        0 tokens
   🙎‍♂️ Bob           0 votes     1000 tokens
@@ -52,7 +52,7 @@ Logs:
 
   Bob delegates its tokens to the exploiter
   Bob sends its tokens to Carl
-  
+
   --------------- [STATS] ----------------
   🙍‍♀️ Alice         0 votes        0 tokens
   🙎‍♂️ Bob           0 votes        0 tokens
@@ -62,7 +62,7 @@ Logs:
 
   Carl delegates its tokens to the exploiter
   Carl sends its tokens the exploiter
-  
+
   --------------- [STATS] ----------------
   🙍‍♀️ Alice         0 votes        0 tokens
   🙎‍♂️ Bob           0 votes        0 tokens
