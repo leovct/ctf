@@ -34,10 +34,10 @@ In order to run all the exploits, you can use:
 make exploit
 ```
 
-Note that you can run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` and you can show traces using `DEBUG=TRUE`. Here's an example:
+Note that you can run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` (see `make list`) and you can show traces using `DEBUG=TRUE`. Here's an example:
 
 ```sh
-make exploit CONTRACT=<CONTRACT_NAME> DEBUG=TRUE
+make exploit CONTRACT=RoadClosed DEBUG=TRUE
 ```
 
 To discover all the possible commands, you can type:
