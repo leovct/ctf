@@ -1,0 +1,32 @@
+// The goal is to write a contract that satisfies the different constraints:
+// - The size of the contract must be 32 bytes at maximum.
+// - The call to the contract must consume a maximum of 100 gas.
+// - The results of `collatzIteration` must be equal.
+// That's why we use Huff to heavily optimize the contract by relying on opcodes directly.
+#define macro MAIN() = takes (0) returns (0) {
+    // Store offset and size for returning value from memory (gas golfing).
+    0x20                // [32]
+    0x00                // [0,32]
+
+    // Load parameter `n`
+    0x04 calldataload   // [n,0,32]
+    // Check if n is even
+    0x02                // [2,n,0,32]
+    dup2                // [n,2,n,0,32]
+    mod                 // [n%2,n,0,32]
+    // If n is not even, jump the 15th instruction (line 27)
+    // Else, continue with the next instruction
+    0x15 jumpi          // [n,0,32]
+
+    // Return the result of n/2
+    0x01 shr            // [n/2,0,32]   // dividing by 2 is equivalent to shifting right by 1 bit
+    0x00 mstore         // [0,32]       // store n/2 in memory
+    return              // []           // return n/2 from memory with no offset and a size of 32 bytes
+
+    // Return the result of 3n+1
+    jumpdest            // [n,0,32]
+    0x03 mul            // [3n,0,32]
+    0x01 add            // [3n+1,0,32]
+    0x00 mstore         // [0,32]       // store 3n+1 in memory
+    return              // []           // return 3n+1 from memory with no offset and a size of 32 bytes
+}
