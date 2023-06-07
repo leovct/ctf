@@ -11,9 +11,11 @@ The following challenges have been solved:
 
 - [QuillCTF](doc/QuillCTF.md)
 
-## Build and Exploit
+## Exploit
 
-First, make sure [Foundry](https://book.getfoundry.sh/getting-started/installation) is installed. We're going to use [Forge](https://book.getfoundry.sh/forge/), an Ethereum testing framework, to build the contracts and run the exploits.
+First, make sure the following are installed:
+1. [Foundry](https://book.getfoundry.sh/getting-started/installation) which comes with [Forge](https://book.getfoundry.sh/forge/), an Ethereum testing framework, to build smart contracts and run the exploits.
+2. [Huff compiler](https://docs.huff.sh/get-started/installing/) which is needed for huff puzzles such as [CollatzPuzzle](src/QuillCTF/CollatzPuzzle.sol).
 
 In order to build and run the exploits, first clone the Github repository:
 
@@ -22,25 +24,25 @@ git clone https://github.com/leovct/puzzl3s
 cd puzzl3s
 ```
 
-In order to build the contracts, you can run the following command:
+To build the contracts, you can run the following command:
 
 ```sh
 make build
 ```
 
-In order to run all the exploits, you can use:
+Run all the exploits using:
 
 ```sh
 make exploit
 ```
 
-Note that you can run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` (see `make list`) and you can show traces using `DEBUG=TRUE`. Here's an example:
+Note that you can also run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` (see `make list`) and you can show traces using `DEBUG=TRUE`. Here's an example:
 
 ```sh
 make exploit CONTRACT=RoadClosed DEBUG=TRUE
 ```
 
-To discover all the possible commands, you can type:
+To discover all the possible commands, run:
 
 ```sh
 make
