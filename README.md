@@ -14,6 +14,7 @@ The following challenges have been solved:
 ## Exploit
 
 First, make sure the following are installed:
+
 1. [Foundry](https://book.getfoundry.sh/getting-started/installation) which comes with [Forge](https://book.getfoundry.sh/forge/), an Ethereum testing framework, to build smart contracts and run the exploits.
 2. [Huff compiler](https://docs.huff.sh/get-started/installing/) which is needed for huff puzzles such as [CollatzPuzzle](src/QuillCTF/CollatzPuzzle.sol).
 
