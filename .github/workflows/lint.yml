@@ -3,6 +3,8 @@ name: lint
 on:
   push:
     paths:
+      # Github workflow
+      - '.github/workflows/lint.yml'
       # Contracts and tests
       - 'src/**/*.sol'
       - 'test/**/*.t.sol'
