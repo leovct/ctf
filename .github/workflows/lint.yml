@@ -1,42 +1,36 @@
 name: lint
 
-on:
-  push:
-    paths:
-      # Contracts and tests
-      - 'src/**/*.sol'
-      - 'test/**/*.t.sol'
-      # Documentation
-      - README.md
+on: push
+
+env:
+  PNPM_VERSION: '8'
+  NODE_VERSION: '20.9'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  check:
-    strategy:
-      fail-fast: true
-
-    name: Lint
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 18
+          version: ${{ env.PNPM_VERSION }}
 
-      - name: Install npm dependencies
-        run: npm ci
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
         id: install
 
-      - name: Run lint on Solidity code
-        run: npx prettier --check 'src/**/*.sol' 'test/**/*.sol'
-        id: solidity-lint
-
-      - name: Run lint on README.md
-        run: npx markdown-table-formatter --check README.md
-        id: readme-lint
+      - name: Run linter
+        run: pnpm run check
+        id: lint
