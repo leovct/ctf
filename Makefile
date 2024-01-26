@@ -20,7 +20,7 @@ list: ## List the contracts.
 
 .PHONY: exploit
 exploit: ## Run exploits. Set CONTRACT to only run the exploit of a specific contract and DEBUG to true to show traces: `make exploit CONTRACT=RoadClosed DEBUG=true`.
-	@cmd="forge test --ffi"; \
+	@cmd="forge test"; \
 	if [ "${CONTRACT}" != "" ]; then \
 		cmd="$${cmd} --match-contract ${CONTRACT}"; \
 	fi; \
