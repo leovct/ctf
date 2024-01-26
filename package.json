@@ -6,5 +6,6 @@
   },
   "dependencies": {
     "markdown-table-formatter": "^1.4.0"
-  }
+  },
+  "version": "0.0.0"
 }
