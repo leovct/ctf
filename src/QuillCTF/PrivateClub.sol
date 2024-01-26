@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import '@openzeppelin/access/Ownable.sol';
-import '@openzeppelin/security/ReentrancyGuard.sol';
+import '@openzeppelin/utils/ReentrancyGuard.sol';
 
 contract PrivateClub is ReentrancyGuard, Ownable {
   uint private registerEndDate;
@@ -10,6 +10,8 @@ contract PrivateClub is ReentrancyGuard, Ownable {
   event memberWithdrawevent(address member, address to, uint amount);
   address[] public members_;
   mapping(address => bool) public members;
+
+  constructor(address _initialOwner) Ownable (_initialOwner) {}
 
   receive() external payable {}
 
