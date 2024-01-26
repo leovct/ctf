@@ -11,7 +11,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
   address[] public members_;
   mapping(address => bool) public members;
 
-  constructor(address _initialOwner) Ownable (_initialOwner) {}
+  constructor(address _initialOwner) Ownable(_initialOwner) {}
 
   receive() external payable {}
 
