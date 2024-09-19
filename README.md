@@ -28,23 +28,17 @@ cd puzzl3s
 To build the contracts, you can run the following command:
 
 ```sh
-make build
+pnpm run build
 ```
 
 Run all the exploits using:
 
 ```sh
-make exploit
+pnpm run exploits
 ```
 
-Note that you can also run the exploit of a specific contract using `CONTRACT=<CONTRACT_NAME>` (see `make list`) and you can show traces using `DEBUG=TRUE`. Here's an example:
+Note that you can also run the exploit of a specific contract using while also showing traces. Here's an example:
 
 ```sh
-make exploit CONTRACT=RoadClosed DEBUG=TRUE
-```
-
-To discover all the possible commands, run:
-
-```sh
-make
+forge test -vvvv --match-contract RoadClosed
 ```
