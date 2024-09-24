@@ -3,9 +3,9 @@ pragma solidity ^0.8.0;
 
 contract VIPBank {
   address public manager;
-  mapping(address => uint) public balances;
+  mapping(address => uint256) public balances;
   mapping(address => bool) public VIP;
-  uint public maxETH = 0.5 ether;
+  uint256 public maxETH = 0.5 ether;
 
   constructor() {
     manager = msg.sender;
@@ -33,7 +33,7 @@ contract VIPBank {
     balances[msg.sender] += msg.value;
   }
 
-  function withdraw(uint _amount) public onlyVIP {
+  function withdraw(uint256 _amount) public onlyVIP {
     // @audit If the bank holds more than `maxETH` ethers, VIP customers won't be able to withdraw.
     // Thus, funds will be locked forever because it's the only method that allows to withdraw funds.
     require(
@@ -46,7 +46,7 @@ contract VIPBank {
     require(success, 'Withdraw Failed!');
   }
 
-  function contractBalance() public view returns (uint) {
+  function contractBalance() public view returns (uint256) {
     return address(this).balance;
   }
 }

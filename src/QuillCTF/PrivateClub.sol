@@ -5,9 +5,11 @@ import '@openzeppelin/access/Ownable.sol';
 import '@openzeppelin/utils/ReentrancyGuard.sol';
 
 contract PrivateClub is ReentrancyGuard, Ownable {
-  uint private registerEndDate;
-  event setRegEndDate(uint registerEndDate);
-  event memberWithdrawevent(address member, address to, uint amount);
+  uint256 private registerEndDate;
+
+  event setRegEndDate(uint256 registerEndDate);
+  event memberWithdrawevent(address member, address to, uint256 amount);
+
   address[] public members_;
   mapping(address => bool) public members;
 
@@ -15,10 +17,10 @@ contract PrivateClub is ReentrancyGuard, Ownable {
 
   receive() external payable {}
 
-  uint public membersCount;
+  uint256 public membersCount;
 
   // @audit The owner can set the registration end date and prevent users to become members.
-  function setRegisterEndDate(uint _newRegisterEndDate) external onlyOwner {
+  function setRegisterEndDate(uint256 _newRegisterEndDate) external onlyOwner {
     registerEndDate = _newRegisterEndDate;
     emit setRegEndDate(registerEndDate);
   }
@@ -32,7 +34,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
     require(_members.length == membersCount, 'wrong members length');
     require(msg.value == membersCount * 1 ether, 'need more ethers');
     bool success;
-    for (uint i = 0; i < _members.length; i++) {
+    for (uint256 i = 0; i < _members.length; i++) {
       (success, ) = _members[i].call{value: 1 ether}('');
       require(success, 'Low-level call failed');
     }
@@ -43,7 +45,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
 
   modifier onlyMember() {
     bool member;
-    for (uint i = 0; i < membersCount; i++) {
+    for (uint256 i = 0; i < membersCount; i++) {
       if (members_[i] == msg.sender) {
         member = true;
       }
@@ -54,7 +56,7 @@ contract PrivateClub is ReentrancyGuard, Ownable {
   }
 
   // @audit The owner of the contract can withdraw all the funds.
-  function adminWithdraw(address to, uint amount) external onlyOwner {
+  function adminWithdraw(address to, uint256 amount) external onlyOwner {
     (bool success, ) = payable(to).call{value: amount}('');
     require(success, 'Low-level call failed');
   }

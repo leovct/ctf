@@ -23,8 +23,8 @@ contract CollatzPuzzle is ICollatz {
     require(size > 0 && size <= 32, 'bad code size!');
 
     // check results to be matching
-    uint p;
-    uint q;
+    uint256 p;
+    uint256 q;
     for (uint256 n = 1; n < 200; n++) {
       // local result
       p = n;

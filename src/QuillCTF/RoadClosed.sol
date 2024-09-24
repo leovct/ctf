@@ -11,7 +11,7 @@ contract RoadClosed {
   // Indeed, a contract does not have source code available during construction.
   // https://consensys.github.io/smart-contract-best-practices/development-recommendations/solidity-specific/extcodesize-checks/
   function isContract(address addr) public view returns (bool) {
-    uint size;
+    uint256 size;
     assembly {
       size := extcodesize(addr)
     }
@@ -22,7 +22,9 @@ contract RoadClosed {
   function isOwner() public view returns (bool) {
     if (msg.sender == owner) {
       return true;
-    } else return false;
+    } else {
+      return false;
+    }
   }
 
   constructor() {

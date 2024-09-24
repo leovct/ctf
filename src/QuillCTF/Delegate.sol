@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract Delegate {
-  uint a = 12345;
+  uint256 a = 12345;
   uint8 b = 32;
   string private d;
   uint32 private c;

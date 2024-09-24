@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract Confidential {
   string public firstUser = 'ALICE';
-  uint public alice_age = 24;
+  uint256 public alice_age = 24;
   // @audit This variable is not really private since it's possible to read its value from storage.
   // All we need is to guess the 32-byte location (slot) where the variable is stored. For example,
   // `string firstUser` will take the first slot, `uint alice_age` the second slot and
@@ -14,7 +14,7 @@ contract Confidential {
   bytes32 private aliceHash = hash(ALICE_PRIVATE_KEY, ALICE_DATA);
 
   string public secondUser = 'BOB';
-  uint public bob_age = 21;
+  uint256 public bob_age = 21;
   // @audit Same thing for this variable stored on slot 7.
   bytes32 private BOB_PRIVATE_KEY; // Super Secret Key
   bytes32 public BOB_DATA = 'Qm9iCg';
