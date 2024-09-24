@@ -6,7 +6,7 @@
     "check": "pnpm exec prettier --plugin prettier-plugin-solidity --check .",
     "lint": "pnpm exec prettier --plugin prettier-plugin-solidity --write .",
     "build": "forge build --sizes --skip Token",
-    "exploits": "forge test -vvv --no-match-contract 'CollatzPuzzle|Delegation' --no-match-path test/Ethernaut/TokenExploit.t.sol"
+    "exploits": "forge test -vvv --summary --no-match-contract 'CollatzPuzzle|Delegation' --no-match-path test/Ethernaut/TokenExploit.t.sol"
   },
   "keywords": [],
   "author": "@leovct",
