@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract Recovery {
-  //generate tokens
+  // generate tokens
   function generateToken(string memory _name, uint256 _initialSupply) public {
     new SimpleToken(_name, msg.sender, _initialSupply);
   }
