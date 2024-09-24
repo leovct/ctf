@@ -1,6 +1,3 @@
-![Lint workflow status](https://img.shields.io/github/actions/workflow/status/leovct/puzzl3s/lint.yml?branch=main&label=ci-lint)
-![Exploit workflow status](https://img.shields.io/github/actions/workflow/status/leovct/puzzl3s/exploit.yml?branch=main&label=ci-exploit)
-
 ## What is Puzzl3s?
 
 Puzzl3s 🧩 is an engaging collection of web3-based puzzles and Capture The Flag (CTF) challenges. While I didn't create the CTFs themselves, this repository showcases my solutions and serves as a comprehensive resource for other developers and security enthusiasts.
