@@ -8,6 +8,7 @@ remappings = [
     # https://www.npmjs.com/package/@openzeppelin/contracts?activeTab=versions
     '@openzeppelin-05/=lib/openzeppelin-contracts-05/contracts', # v2.5.1
     '@openzeppelin-06/=lib/openzeppelin-contracts-06/contracts', # v3.4.2
+    '@openzeppelin-07/=lib/openzeppelin-contracts-07/contracts', # v4.9.6
     '@openzeppelin-08/=lib/openzeppelin-contracts-08/contracts', # v5.0.2
 ]
 ffi = true
