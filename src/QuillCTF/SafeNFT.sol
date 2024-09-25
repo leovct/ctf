@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-import '@openzeppelin/token/ERC721/extensions/ERC721Enumerable.sol';
+import '@openzeppelin-08/token/ERC721/extensions/ERC721Enumerable.sol';
 
 contract SafeNFT is ERC721Enumerable {
   uint256 price;

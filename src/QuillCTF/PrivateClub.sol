@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-import '@openzeppelin/access/Ownable.sol';
-import '@openzeppelin/utils/ReentrancyGuard.sol';
+import '@openzeppelin-08/access/Ownable.sol';
+import '@openzeppelin-08/utils/ReentrancyGuard.sol';
 
 contract PrivateClub is ReentrancyGuard, Ownable {
   uint256 private registerEndDate;

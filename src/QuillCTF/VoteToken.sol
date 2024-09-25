@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-import '@openzeppelin/token/ERC20/ERC20.sol';
+import '@openzeppelin-08/token/ERC20/ERC20.sol';
 
 contract VoteToken is ERC20('Vote Token', 'vToken') {
   address public owner;
