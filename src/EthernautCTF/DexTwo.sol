@@ -16,22 +16,23 @@ contract DexTwo is Ownable {
     token2 = _token2;
   }
 
-  function add_liquidity(
+  function addLiquidity(
     address token_address,
     uint256 amount
   ) public onlyOwner {
     IERC20(token_address).transferFrom(msg.sender, address(this), amount);
   }
 
+  // The implementation of the `swap` method has changed.
   function swap(address from, address to, uint256 amount) public {
     require(IERC20(from).balanceOf(msg.sender) >= amount, 'Not enough to swap');
-    uint256 swapAmount = getSwapAmount(from, to, amount);
+    uint256 swapAmount = getSwapPrice(from, to, amount);
     IERC20(from).transferFrom(msg.sender, address(this), amount);
     IERC20(to).approve(address(this), swapAmount);
     IERC20(to).transferFrom(address(this), msg.sender, swapAmount);
   }
 
-  function getSwapAmount(
+  function getSwapPrice(
     address from,
     address to,
     uint256 amount
