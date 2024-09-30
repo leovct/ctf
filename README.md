@@ -6,8 +6,8 @@ Puzzl3s 🧩 is an engaging collection of web3-based puzzles and Capture The Fla
 
 The following challenges have been solved:
 
-- [EthernautCTF](doc/EthernautCTF.md)
-- [QuillCTF](doc/QuillCTF.md)
+- [EthernautCTF](docs/EthernautCTF.md)
+- [QuillCTF](docs/QuillCTF.md)
 
 ## Exploit
 
