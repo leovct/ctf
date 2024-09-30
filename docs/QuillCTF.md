@@ -12,4 +12,4 @@
 | 20  | [VoteToken](../src/QuillCTF/VoteToken.sol)         | ✅   | [VoteTokenExploit](../test/QuillCTF/VoteTokenExploit.t.sol) (\*)     | - The contract doesn't update its state when users transfer tokens                                                                                                                                                                                      |
 | 21  | [PrivateClub](../src/QuillCTF/PrivateClub.sol)     | ✅   | [PrivateClubExploit](../test/QuillCTF/PrivateClubExploit.t.sol) (\*) | - Not enough check of the parameters (e.g. `becomeMember`)<br>- Too much power given to the contract owner                                                                                                                                              |
 
-(\*) Detailed reports have been written for these exploits: [VoteToken](../reports/QuillCTF/VoteToken.md) and [PrivateClub](../reports/QuillCTF/PrivateClub.md).
+(\*) Detailed reports have been written for these exploits: [VoteToken](./reports/VoteToken.md) and [PrivateClub](./reports/PrivateClub.md).
