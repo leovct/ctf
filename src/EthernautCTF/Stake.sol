@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+
 contract Stake {
   uint256 public totalStaked;
   mapping(address => uint256) public UserStake;
@@ -17,6 +18,7 @@ contract Stake {
     UserStake[msg.sender] += msg.value;
     Stakers[msg.sender] = true;
   }
+
   function StakeWETH(uint256 amount) public returns (bool) {
     require(amount > 0.001 ether, "Don't be cheap");
     (, bytes memory allowance) = WETH.call(
@@ -42,6 +44,7 @@ contract Stake {
     (bool success, ) = payable(msg.sender).call{value: amount}('');
     return success;
   }
+
   function bytesToUint(bytes memory data) internal pure returns (uint256) {
     require(data.length >= 32, 'Data length must be at least 32 bytes');
     uint256 result;
