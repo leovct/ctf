@@ -16,3 +16,6 @@
 [submodule "lib/openzeppelin-contracts-08"]
 	path = lib/openzeppelin-contracts-08
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "lib/damn-vulnerable-defi-v4"]
+	path = lib/damn-vulnerable-defi-v4
+	url = https://github.com/theredguild/damn-vulnerable-defi

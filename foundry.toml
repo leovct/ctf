@@ -10,6 +10,7 @@ remappings = [
     '@openzeppelin-06/=lib/openzeppelin-contracts-06/contracts', # v3.4.2
     '@openzeppelin-07/=lib/openzeppelin-contracts-07/contracts', # v4.9.6
     '@openzeppelin-08/=lib/openzeppelin-contracts-08/contracts', # v5.0.2
+    '@damn-vulnerable-defi-v4/=lib/damn-vulnerable-defi-v4/src',
 ]
 ffi = true
 
