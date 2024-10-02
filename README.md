@@ -6,6 +6,7 @@ Puzzl3s 🧩 is an engaging collection of web3-based puzzles and Capture The Fla
 
 The following challenges have been solved:
 
+- [Damn Vulnerable DeFi V4](docs/DamnVulnerableDeFi.md)
 - [EthernautCTF](docs/EthernautCTF.md)
 - [QuillCTF](docs/QuillCTF.md)
 
