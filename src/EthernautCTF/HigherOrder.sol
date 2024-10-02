@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.6.12;
+pragma solidity ^0.6.0;
 
 contract HigherOrder {
   address public commander;
-
   uint256 public treasury;
 
   function registerTreasury(uint8) public {
