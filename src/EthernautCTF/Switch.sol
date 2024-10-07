@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import '@forge-std/console.sol';
+
 contract Switch {
   bool public switchOn; // switch is off
   bytes4 public offSelector = bytes4(keccak256('turnSwitchOff()'));
@@ -17,6 +19,7 @@ contract Switch {
     assembly {
       calldatacopy(selector, 68, 4) // grab function selector from calldata
     }
+    console.logBytes32(selector[0]);
     require(
       selector[0] == offSelector,
       'Can only call the turnOffSwitch function'
@@ -25,6 +28,7 @@ contract Switch {
   }
 
   function flipSwitch(bytes memory _data) public onlyOff {
+    console.logBytes(_data);
     (bool success, ) = address(this).call(_data);
     require(success, 'call failed :(');
   }
