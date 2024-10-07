@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-import '@forge-std/console2.sol';
-
 interface IBoolGiver {
   // @audit The function is `view` so it can't modify the state.
   function giveBool() external view returns (bool);
