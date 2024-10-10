@@ -42,4 +42,8 @@
 
 ### Level 26
 
-![Level 26 Architecture Diagram](./architecture-diagrams/ethernaut-lvl-26.png)
+![Level 26 Architecture Diagram](./architecture-diagrams/level-26.png)
+
+### Level 27
+
+![Level 27 Architecture Diagram](./architecture-diagrams/level-27.png)
