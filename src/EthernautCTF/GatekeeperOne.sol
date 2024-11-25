@@ -5,27 +5,27 @@ contract GatekeeperOne {
   address public entrant;
 
   modifier gateOne() {
-    require(msg.sender != tx.origin);
+    require(msg.sender != tx.origin, 'Gate 1');
     _;
   }
 
   modifier gateTwo() {
-    require(gasleft() % 8191 == 0);
+    require(gasleft() % 8191 == 0, 'Gate 2');
     _;
   }
 
   modifier gateThree(bytes8 _gateKey) {
     require(
       uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)),
-      'GatekeeperOne: invalid gateThree part one'
+      'Gate 3.1'
     );
     require(
       uint32(uint64(_gateKey)) != uint64(_gateKey),
-      'GatekeeperOne: invalid gateThree part two'
+      'Gate 3.2'
     );
     require(
       uint32(uint64(_gateKey)) == uint16(uint160(tx.origin)),
-      'GatekeeperOne: invalid gateThree part three'
+      'Gate 3.3'
     );
     _;
   }
