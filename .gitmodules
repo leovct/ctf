@@ -7,15 +7,19 @@
 [submodule "lib/openzeppelin-contracts-05"]
 	path = lib/openzeppelin-contracts-05
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	# pushd lib/openzeppelin-contracts-05 && git checkout v2.5.1 && popd
 [submodule "lib/openzeppelin-contracts-06"]
 	path = lib/openzeppelin-contracts-06
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	# pushd lib/openzeppelin-contracts-06 && git checkout v3.4.2 && popd
 [submodule "lib/openzeppelin-contracts-07"]
 	path = lib/openzeppelin-contracts-07
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	# pushd lib/openzeppelin-contracts-07 && git checkout v4.9.6 && popd
 [submodule "lib/openzeppelin-contracts-08"]
 	path = lib/openzeppelin-contracts-08
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	# pushd lib/openzeppelin-contracts-08 && git checkout v5.0.2 && popd
 [submodule "lib/damn-vulnerable-defi-v4"]
 	path = lib/damn-vulnerable-defi-v4
 	url = https://github.com/theredguild/damn-vulnerable-defi
