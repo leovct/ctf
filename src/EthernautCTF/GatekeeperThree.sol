@@ -41,13 +41,13 @@ contract GatekeeperThree {
   }
 
   modifier gateOne() {
-    require(msg.sender == owner);
-    require(tx.origin != owner);
+    require(msg.sender == owner, 'Gate 1.1');
+    require(tx.origin != owner, 'Gate 1.2');
     _;
   }
 
   modifier gateTwo() {
-    require(allowEntrance == true);
+    require(allowEntrance == true, 'Gate 2');
     _;
   }
 
