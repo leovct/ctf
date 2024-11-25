@@ -15,18 +15,9 @@ contract GatekeeperOne {
   }
 
   modifier gateThree(bytes8 _gateKey) {
-    require(
-      uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)),
-      'Gate 3.1'
-    );
-    require(
-      uint32(uint64(_gateKey)) != uint64(_gateKey),
-      'Gate 3.2'
-    );
-    require(
-      uint32(uint64(_gateKey)) == uint16(uint160(tx.origin)),
-      'Gate 3.3'
-    );
+    require(uint32(uint64(_gateKey)) == uint16(uint64(_gateKey)), 'Gate 3.1');
+    require(uint32(uint64(_gateKey)) != uint64(_gateKey), 'Gate 3.2');
+    require(uint32(uint64(_gateKey)) == uint16(uint160(tx.origin)), 'Gate 3.3');
     _;
   }
 
